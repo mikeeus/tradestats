@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Imports
+@import '~fonts.scss';
+@import '~variables.scss';
+
+html, body {
+  font-family: 'Encode Sans', sans-serif;
+  font-weight: 400;
+  color: $grey7;
+}
