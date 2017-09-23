@@ -1,0 +1,15 @@
+@import '~variables.scss';
+
+.info{
+  @include gt-xs {
+    padding: 30px;
+  }
+  @include xs {
+    padding: 15px;    
+  }
+
+  h4{
+    font-weight: 600;
+    font-size: 16px;
+  }
+}

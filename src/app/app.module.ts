@@ -27,6 +27,7 @@ import { ROUTES } from './app.routes';
 // App Modules
 import { LayoutModule } from './common';
 import { HomeModule } from './home';
+import { RecordsModule } from './records';
 
 // Other
 import { TimeoutInterceptor } from './_interceptors';
@@ -68,6 +69,7 @@ const APP_PROVIDERS = [
     // App Modules
     LayoutModule,
     HomeModule,
+    RecordsModule,
 
     RouterModule.forRoot(ROUTES)
   ],
