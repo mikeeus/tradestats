@@ -9,10 +9,11 @@ import { Action } from '@ngrx/store';
  * action types in the application are unique.
  */
 export const ActionTypes = {
-  STOP_LOADING_ALL:  '[APP] Stop loading all.',
-  EMPTY:             '[APP] Empty',
+  STOP_LOADING_ALL:  '[HOME] Stop loading all.',
 
-  HTTP_ERROR:        '[APP] Http error.'
+  LOAD_GRAPH:         '[HOME] Load graph.',
+  LOAD_GRAPH_SUCCESS: '[HOME] Load graph success.',
+  LOAD_GRAPH_FAIL:    '[HOME] Load graph fail.'
 };
 
 /**
@@ -27,16 +28,21 @@ export class StopLoadingAll implements Action {
 
   constructor(public payload: null) { };
 }
-export class Empty implements Action {
-  type = ActionTypes.EMPTY;
+
+export class LoadGraph implements Action {
+  type = ActionTypes.LOAD_GRAPH;
 
   constructor(public payload: null) { };
 }
+export class LoadGraphSuccess implements Action {
+  type = ActionTypes.LOAD_GRAPH;
 
-export class HttpError implements Action {
-  type = ActionTypes.HTTP_ERROR;
+  constructor(public payload: null) { };
+}
+export class LoadGraphFail implements Action {
+  type = ActionTypes.LOAD_GRAPH;
 
-  constructor(public payload: Error) { };
+  constructor(public payload: null) { };
 }
 
 /**
@@ -46,5 +52,6 @@ export class HttpError implements Action {
 export type Actions
   = StopLoadingAll
 
-  | Empty
-  | HttpError
+  | LoadGraph
+  | LoadGraphSuccess
+  | LoadGraphFail

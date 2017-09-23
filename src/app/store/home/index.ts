@@ -1,3 +1,3 @@
-export * from './app.action';
-export * from './app.effects';
-export * from './app.reducer';
+export * from './home.action';
+export * from './home.effects';
+export * from './home.reducer';

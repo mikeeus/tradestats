@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 import { NotificationsService } from 'angular2-notifications';
 
 import { State } from '../';
-import * as AppActions from './app.action';
+import * as HomeActions from './home.action';
 
 import { Actions, Effect } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AppEffects {
+export class HomeEffects {
   /**Handle http request errors*/
   @Effect({ dispatch: false })
   httpErrors: Observable<any> = this.actions
     .ofType(
-      AppActions.ActionTypes.HTTP_ERROR,
-    ).map((action: AppActions.HttpError) => action.payload)
+      HomeActions.ActionTypes.HTTP_ERROR,
+    ).map((action: HomeActions.HttpError) => action.payload)
     .map(error => {
       const parsed = this.parseError(error);
       this.notify.error(parsed.title, parsed.content);
