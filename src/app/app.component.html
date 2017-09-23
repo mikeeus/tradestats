@@ -1,2 +1,18 @@
 <ets-header></ets-header>
-<router-outlet></router-outlet>
+<div fxFill class="content-wrapper">
+
+  <div class="loading-overlay" *ngIf="loading">
+    <md-progress-bar mode="indeterminate"></md-progress-bar>
+  </div>
+
+  <main fxFill>
+    <router-outlet></router-outlet>
+  </main>
+    
+</div>
+
+<!--Simple notification-->
+<simple-notifications [options]="notificationsOptions"></simple-notifications>
+
+<!--Named outlets-->
+<router-outlet name="right"></router-outlet>
