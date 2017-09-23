@@ -1,0 +1,9 @@
+@import '~variables.scss';
+
+md-toolbar{
+  background: $main-color;
+  color: white;
+  .logo{
+    font-size: 22px;
+  }
+}
