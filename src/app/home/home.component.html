@@ -34,5 +34,23 @@
     </small>
   </div>
 
-  <div class="graph" fxFlex.gt-sm>Graph</div>
+  <div class="graph" fxFlex.gt-sm>
+    <ng-container *ngIf="graph | async as graph">
+      <ngx-charts-line-chart *ngIf="graph.data"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="graph.data"
+        [gradient]="gradient"
+        [xAxis]="showXAxis"
+        [yAxis]="showYAxis"
+        [legend]="showLegend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [autoScale]="autoScale"
+        (select)="onSelect($event)">
+      </ngx-charts-line-chart>
+    </ng-container>
+  </div>
 </div>

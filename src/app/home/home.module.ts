@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MdListModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+
 import { HomeComponent } from './home.component';
 import { ROUTES } from './home.routes';
 
@@ -11,6 +13,8 @@ import { ROUTES } from './home.routes';
   imports: [
     CommonModule,
     RouterModule.forChild(ROUTES),
+
+    NgxChartsModule,
 
     MdListModule,
     FlexLayoutModule,

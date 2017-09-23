@@ -44,4 +44,4 @@ export const getLocation = createSelector(getAppState, AppReducer.getLocation);
 // // ************************************
 export const getHomeState = (appState: State) => appState.home;
 
-export const getGraph = createSelector(getHomeState, HomeReducer.getGraph);
+export const getHomeGraph = createSelector(getHomeState, HomeReducer.getGraph);
