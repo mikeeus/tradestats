@@ -6,6 +6,8 @@ import { RecordsComponent } from './records.component';
 import { ROUTES } from './records.routes';
 import { DetailComponent } from './detail';
 
+import { RecordResolver } from './record.resolver';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -14,6 +16,9 @@ import { DetailComponent } from './detail';
   declarations: [
     RecordsComponent,
     DetailComponent
+  ],
+  providers: [
+    RecordResolver
   ]
 })
 export class RecordsModule { }

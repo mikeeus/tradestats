@@ -7,17 +7,20 @@ import { Observable } from 'rxjs/Observable';
 
 import * as AppReducer from './app/app.reducer';
 import * as HomeReducer from './home/home.reducer';
+import * as RecordsReducer from './records/records.reducer';
 
 import { environment } from '../../environments/environment';
 
 export interface State {
   app: AppReducer.State,
   home: HomeReducer.State,
+  records: RecordsReducer.State,
 }
 
 export const reducers: ActionReducerMap<State> = {
   app: AppReducer.reducer,
   home: HomeReducer.reducer,
+  records: RecordsReducer.reducer,
 }
 
 // Currently reducers for both environments are the same
@@ -45,3 +48,10 @@ export const getLocation = createSelector(getAppState, AppReducer.getLocation);
 export const getHomeState = (appState: State) => appState.home;
 
 export const getHomeGraph = createSelector(getHomeState, HomeReducer.getGraph);
+
+// // ************************************
+// // Records State Functions
+// // ************************************
+export const getRecordsState = (appState: State) => appState.records;
+
+export const getRecord = createSelector(getRecordsState, RecordsReducer.getRecord);

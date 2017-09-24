@@ -5,12 +5,14 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppEffects } from './app';
 import { HomeEffects } from './home';
+import { RecordsEffects } from './records';
 
 @NgModule({
   imports: [
     EffectsModule.forFeature([
       AppEffects,
       HomeEffects,
+      RecordsEffects,
     ])
   ]
 })
