@@ -1,7 +1,19 @@
 <md-toolbar class="sp-shadow-a1">
   <div class="logo" routerLink="/">ETS</div>
   <div fxFlex></div>
-  <div class="searchbar">searchbar</div>
+  <div class="searchbar">
+    <form [formGroup]="form" class="example-form">
+      <md-input-container>
+        <!-- <input mdInput placeholder="Search drug" [mdAutocomplete]="auto" [formControl]="drug" showPanel="false"> -->
+        <input mdInput placeholder="Select country..." aria-label="Country" [mdAutocomplete]="auto" [formControl]="form.get('country')">
+        <md-autocomplete #auto="mdAutocomplete">
+          <md-option *ngFor="let c of filtered | async" [value]="c">
+             {{ c }}
+          </md-option>
+       </md-autocomplete>
+      </md-input-container>
+    </form>
+  </div>
   <div fxFlex></div>  
   <div class="menu">menu</div>
 </md-toolbar>

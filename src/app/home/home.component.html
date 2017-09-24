@@ -1,5 +1,5 @@
 <div class="container" fxLayout.xs="column" fxLayout.sm="column" fxLayout.gt-sm="row">
-  <div class="info sp-shadow-a1" fxFlex.gt-sm>
+  <div class="info sp-shadow-a1" fxFlex.gt-sm="30">
     <h1>Ethiopian Trade Statistics</h1>
     
     <p>The purpose of this site is to make Ethiopian import and export statistics available in a userfriendly and clear format in order to promote:</p>
@@ -34,23 +34,19 @@
     </small>
   </div>
 
-  <div class="graph" fxFlex.gt-sm>
+  <div class="graph" fxFlex.gt-sm="70">
     <ng-container *ngIf="graph | async as graph">
-      <ngx-charts-line-chart *ngIf="graph.data"
-        [view]="view"
-        [scheme]="colorScheme"
-        [results]="graph.data"
-        [gradient]="gradient"
-        [xAxis]="showXAxis"
-        [yAxis]="showYAxis"
-        [legend]="showLegend"
-        [showXAxisLabel]="showXAxisLabel"
-        [showYAxisLabel]="showYAxisLabel"
-        [xAxisLabel]="xAxisLabel"
-        [yAxisLabel]="yAxisLabel"
-        [autoScale]="autoScale"
-        (select)="onSelect($event)">
-      </ngx-charts-line-chart>
+      <div style="display: block" *ngIf="graph.data">
+        <canvas baseChart
+            [datasets]="graph.data"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [colors]="chartColors"
+            [legend]="chartLegend"
+            [chartType]="chartType"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"></canvas>
+      </div>
     </ng-container>
   </div>
 </div>

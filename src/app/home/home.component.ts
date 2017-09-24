@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { chartOptions, chartColors, YEARS } from '../shared';
+
 import * as storeRoot from '../store/index';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -27,6 +29,12 @@ export class HomeComponent implements OnInit {
   showYAxisLabel = true;
   xAxisLabel = 'Country';
   yAxisLabel = 'Population';
+
+  public chartType = 'bar';
+  public chartLegend = true;
+  public chartOptions = chartOptions;
+  public chartColors = chartColors;
+  public chartLabels = YEARS;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
