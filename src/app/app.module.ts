@@ -21,6 +21,9 @@ import { reducers } from './store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+// Services
+import { SERVICE_PROVIDERS } from './_services';
+
 // App Component and Routes
 import { AppComponent } from './app.component';
 import { ROUTES } from './app.routes';
@@ -41,6 +44,7 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 // App Providers
 const APP_PROVIDERS = [
+  ...SERVICE_PROVIDERS,
   { provide: HTTP_INTERCEPTORS, useClass: TimeoutInterceptor, multi: true },
   {provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'never' }}
 ]
