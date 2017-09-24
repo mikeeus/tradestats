@@ -1,19 +1,35 @@
 <md-toolbar class="sp-shadow-a1">
   <div class="logo" routerLink="/">ETS</div>
+  <div class="search" fxFlex.xs="200px" fxFlex.gt-xs="400px">
+    <form [formGroup]="form" class="example-form">
+      <md-input-container>
+        <!-- <input mdInput placeholder="Search drug" [mdAutocomplete]="auto" [formControl]="drug" showPanel="false"> -->
+        <input mdInput placeholder="Search records..." aria-label="Records" [mdAutocomplete]="search" [formControl]="form.get('records')">
+        <md-autocomplete #search="mdAutocomplete">
+          <md-option *ngFor="let result of results | async"
+            class="search-result"
+            fxLayout="column"
+            routerLink="/records/{{ result.code }}">
+            <span>{{ result.description }}</span>
+            <small>code: {{ result.code }} | vat: {{ result.vat }} | sur: {{ result.sur }} | excise: {{ result.excise }} | duty: {{ result.duty }} | wh: {{ result.withholding }}</small>
+          </md-option>
+       </md-autocomplete>
+      </md-input-container>
+    </form>
+  </div>
   <div fxFlex></div>
-  <div class="searchbar">
+  <div class="countries" *ngIf="media.isActive('gt-xs')">
     <form [formGroup]="form" class="example-form">
       <md-input-container>
         <!-- <input mdInput placeholder="Search drug" [mdAutocomplete]="auto" [formControl]="drug" showPanel="false"> -->
         <input mdInput placeholder="Select country..." aria-label="Country" [mdAutocomplete]="auto" [formControl]="form.get('country')">
         <md-autocomplete #auto="mdAutocomplete">
           <md-option *ngFor="let c of filtered | async" [value]="c">
-             {{ c }}
+            {{ c }}
           </md-option>
        </md-autocomplete>
       </md-input-container>
     </form>
   </div>
-  <div fxFlex></div>  
   <div class="menu">menu</div>
 </md-toolbar>

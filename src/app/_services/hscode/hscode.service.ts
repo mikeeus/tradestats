@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Hscode } from '../../models';
 import { HSCODES_URL } from '../config';
 
 import { Observable } from 'rxjs/Observable';
@@ -12,7 +13,8 @@ export class HscodeService {
     private http: HttpClient
   ) { }
 
-  search(term: string): Observable<any> {
-    return this.http.get(`${HSCODES_URL}/term`)
+  search(term: string): Observable<Hscode[]> {
+    return this.http.get<Hscode[]>(`${HSCODES_URL}/search/${term}`)
+                    .map(r => r.map(h => new Hscode(h)))
   }
 }

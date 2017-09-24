@@ -18,4 +18,16 @@ md-toolbar{
   .example-full-width {
     width: 100%;
   }
+  .search{
+    // font-size: 13px;
+    md-input-container{
+      width: 100%;
+    }
+  }
+
+  form{
+    .mat-form-field-wrapper{
+      padding-bottom: 0;
+    }
+  }
 }
