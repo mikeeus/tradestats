@@ -13,8 +13,17 @@ export class HscodeService {
     private http: HttpClient
   ) { }
 
+  /**Search Hscode's description.*/
   search(term: string): Observable<Hscode[]> {
     return this.http.get<Hscode[]>(`${HSCODES_URL}/search/${term}`)
                     .map(r => r.map(h => new Hscode(h)))
+  }
+
+  /**Get Hscode using id
+   * @param {number} id The Hscode's id.
+   */
+  get(id: number): Observable<Hscode> {
+    return this.http.get<Hscode>(`${HSCODES_URL}/${id}`)
+                    .map(h => new Hscode(h))
   }
 }
