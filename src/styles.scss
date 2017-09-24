@@ -60,3 +60,17 @@ a{
     padding: 15px;    
   }
 }
+
+// Angular Material
+md-option.search-result{
+  font-size: 13px;
+  padding: 0 10px;
+  span{
+    line-height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  small{
+    line-height: 10px;
+  }
+}
