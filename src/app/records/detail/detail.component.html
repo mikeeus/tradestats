@@ -1,8 +1,8 @@
-<div class="container" fxLayout="column">
+<div class="container" fxLayout="column" *ngIf="record | async as record">
   <div class="info" fxLayout.xs="column" fxLayout.sm="column" fxLayout.gt-sm="row">
     <div class="left sp-shadow-a1" fxFlex.gt-sm>
-      <div class="description"></div>
-      <div class="related"></div>
+      <div class="description">{{ record.data.description }}</div>
+      <div class="related">{{ record.data.related | json }}</div>
     </div>
   
     <div class="right" fxLayout="column">
